@@ -9,28 +9,28 @@ export default class PreloadScene extends Phaser.Scene {
     //this.load.image("space", "assets/space.png");
     //this.load.image("bears", "assets/bears.png");
     
-    this.load.spritesheet("ship1", "assets/spritesheets/ship1.png"), {
-      frameHeight: 16,
-      frameWidth: 16
-    };
+    this.load.spritesheet("ship1", "assets/spritesheets/ship1.png", {
+      frameWidth: 16,
+      frameHeight: 16
+    });
     //this.load.image("icecream1", "assets/ice\ cream\ bar.png");
     
-    this.load.spritesheet("ship2", "assets/spritesheets/ship2.png"), {
-      frameHeight: 32,
-      frameWidth: 16
-    };
+    this.load.spritesheet("ship2", "assets/spritesheets/ship2.png", {
+      frameWidth: 32,
+      frameHeight: 16
+    });
     //this.load.image("icecream2", "assets/ice\ cream\ bar1.png");
     
-    this.load.spritesheet("ship3", "assets/spritesheets/ship3.png"),{
-      frameHeight: 32,
-      frameWidth: 32
-    };
+    this.load.spritesheet("ship3", "assets/spritesheets/ship3.png",{
+      frameWidth: 32,
+      frameHeight: 32
+    });
     //this.load.image("icecream3", "assets/ice\ cream\ bar2.png");
 
-    this.load.spritesheet("explosion", "assets/spritesheets/explosion.png"),{
-      frameHeight: 16,
-      frameWidth: 16
-    };
+    this.load.spritesheet("explosion", "assets/spritesheets/explosion.png",{
+      frameWidth: 16,
+      frameHeight: 16
+    });
     //this.load.spritesheet("ship", "assets/spritesheets/ship.png", {frameWidth: 16,frameHeight: 16});
   }
 

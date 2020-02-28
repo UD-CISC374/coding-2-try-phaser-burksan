@@ -44,7 +44,11 @@ export default class MainScene extends Phaser.Scene {
     //let icecream2 = this.add.image(500, 200, "icecream2");
     //let icecream3 = this.add.image(365, 365, "icecream3");
 
-    //this.anims.create({key: "ship1_anim", frames: this.anims.generateFrameNumbers("ship1"), frameRate: 20, repeat: -1});
+    this.anims.create({
+    key: "ship1_anim", 
+    frames: this.anims.generateFrameNumbers("ship1", {start: 0, end: 1}), 
+    frameRate: 20, 
+    repeat: -1});
 
   }
 
