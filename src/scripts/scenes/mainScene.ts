@@ -2,6 +2,7 @@ import icecream from "../objects/icecream";
 import ship from "../objects/ship"
 import bears from "../objects/bears";
 import background from "../objects/background";
+import powerUps from "../objects/powerUps";
 
 //import ExampleObject from '../objects/exampleObject';
 //import PreloadScene from './preloadScene';
@@ -14,6 +15,7 @@ export default class MainScene extends Phaser.Scene {
   //private bears: bears;
   //private icecream: icecream;
   private background;
+  private powerUps: powerUps;
 
 
   constructor() {
@@ -50,6 +52,60 @@ export default class MainScene extends Phaser.Scene {
     frameRate: 20, 
     repeat: -1});
 
+    this.anims.create({
+      key: "ship2_anim",
+      frames: this.anims.generateFrameNumbers("ship2", {start: 0, end: 1}),
+      repeat: -1
+    })
+
+    this.anims.create({
+      key: "ship3_anim",
+      frames: this.anims.generateFrameNumbers("ship3", {start: 0, end: 1}),
+      repeat: -1
+    })
+    
+    this.anims.create({
+      key: "explode",
+      frames: this.anims.generateFrameNumbers("explosion", {start: 0, end: 1}),
+      frameRate: 20,
+      repeat: 0,
+      hideOnComplete: true
+    });
+
+    this.anims.create({
+      key: "red",
+      frames: this.anims.generateFrameNumbers("power-up", {
+        start: 0,
+        end: 1
+      }),
+      frameRate: 20,
+      repeat: -1
+    });
+
+    this.anims.create({
+      key: "gray",
+      frames: this.anims.generateFrameNumbers("power-up", {
+        start: 2,
+        end: 3
+      }),
+      frameRate: 20,
+      repeat: -1
+    });
+
+    this.powerUps = this.physics.add.group();
+
+    this.ship1.play("ship1_anim");
+    this.ship2.play("ship2_anim");
+    this.ship3.play("ship3_anim");
+
+    this.ship1.setInteractive();
+    this.ship2.setInteractive();
+    this.ship3.setInteractive();
+
+    this.input.on('gameobjectdown', this.destroyShip, this);
+
+    //this.input.on('gameobjectdown', this.destroyShip, this);
+
   }
 
   moveIce(icecream, speed){
@@ -60,9 +116,16 @@ export default class MainScene extends Phaser.Scene {
   }
 
   moveShipY(ship, speed){
-    speed.y += speed;
+    ship.y += speed;
     if (ship.y > this.scale.height){
       this.resetShipY(ship);
+    }
+  }
+
+  moveShipX(ship, speed){
+    ship.x += speed;
+    if (ship.x > this.scale.width){
+      this.resetShipX(ship);
     }
   }
 
@@ -71,15 +134,28 @@ export default class MainScene extends Phaser.Scene {
     let randomX = Phaser.Math.Between(0,this.scale.height);
     ship.x = randomX;
   }
+
+
   resetIcePosX(icecream){
     icecream.y = 0;
     let randomX = Phaser.Math.Between(0,this.scale.height);
     icecream.x = randomX;
   }
 
+  resetShipX(ship){
+    ship.x = 0;
+    let randomY = Phaser.Math.Between(0,this.scale.width);
+    ship.y = randomY;
+  }
+
+  destroyShip(pointer, gameObject){
+    gameObject.setTexture("explosion");
+    gameObject.play("explode");
+  }
 
   update() {
     this.moveShipY(this.ship1, 1);
+
     this.moveShipY(this.ship2, 2);
     this.moveShipY(this.ship3, 3);
     this.background.tilePositionY -= 0.5;
