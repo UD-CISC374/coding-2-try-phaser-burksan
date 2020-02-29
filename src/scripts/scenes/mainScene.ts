@@ -92,7 +92,7 @@ export default class MainScene extends Phaser.Scene {
       repeat: -1
     });
 
-    this.powerUps = this.physics.add.group();
+    //this.powerUps = this.physics.add.group();
 
     this.ship1.play("ship1_anim");
     this.ship2.play("ship2_anim");
@@ -103,8 +103,6 @@ export default class MainScene extends Phaser.Scene {
     this.ship3.setInteractive();
 
     this.input.on('gameobjectdown', this.destroyShip, this);
-
-    //this.input.on('gameobjectdown', this.destroyShip, this);
 
   }
 
