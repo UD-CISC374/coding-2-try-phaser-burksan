@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1cf1a513e95290479b69f6c9660a1a72",
+    "revision": "eda051dd8c5c9541b633963d6ce41655",
     "url": "/coding-2-try-phaser-burksan/devassets/.DS_Store"
   },
   {
@@ -52,12 +52,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/coding-2-try-phaser-burksan/devassets/space.png"
   },
   {
-    "revision": "df31bca21db79f80f61cb4f7c34fb1a7",
+    "revision": "76fbb2be7e4bdb6180671a028fe6704c",
     "url": "/coding-2-try-phaser-burksan/devassets/spritesheets/.DS_Store"
   },
   {
     "revision": "ea801e18a4f14b0c4740b555536b414e",
     "url": "/coding-2-try-phaser-burksan/devassets/spritesheets/explosion.png"
+  },
+  {
+    "revision": "05427110fd2c2de1d4738b31496a53c9",
+    "url": "/coding-2-try-phaser-burksan/devassets/spritesheets/power-up.png"
   },
   {
     "revision": "6387e4bedb194c28efe573c1cc5ce303",
@@ -72,15 +76,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/coding-2-try-phaser-burksan/devassets/spritesheets/ship3.png"
   },
   {
-    "revision": "df74f95f9f8bbb57d74c",
-    "url": "/coding-2-try-phaser-burksan/devgen.main.a6c6c251703a7e3a51a0.bundle.js"
+    "revision": "2dd128c5b38b03124d5e",
+    "url": "/coding-2-try-phaser-burksan/devgen.main.8e94aee1591e922af410.bundle.js"
   },
   {
     "revision": "201b65bee9df6270f739",
     "url": "/coding-2-try-phaser-burksan/devgen.vendors.a047ee0740c7d21714d9.bundle.js"
   },
   {
-    "revision": "49d2243d51c891eda2957df950251762",
+    "revision": "63e7fd6924451cbadd4b67a769c7931f",
     "url": "/coding-2-try-phaser-burksan/devindex.html"
   },
   {
