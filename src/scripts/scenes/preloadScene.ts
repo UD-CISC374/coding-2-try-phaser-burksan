@@ -37,6 +37,11 @@ export default class PreloadScene extends Phaser.Scene {
       frameWidth: 16,
       frameHeight: 16
     });
+
+    this.load.spritesheet("player", "assets/spritesheets/player.png", {
+      frameWidth: 16,
+      frameHeight: 24
+    });
   }
 
   
@@ -59,6 +64,62 @@ export default class PreloadScene extends Phaser.Scene {
     //icecream1.setScale(0.5);
     //let icecream3 = this.add.image(900, 975, 'icecream');
     //icecream1.setScale(0.5);
+
+    this.anims.create({
+      key: "ship1_anim", 
+      frames: this.anims.generateFrameNumbers("ship1", {start: 0, end: 1}), 
+      frameRate: 20, 
+      repeat: -1});
+  
+      this.anims.create({
+        key: "ship2_anim",
+        frames: this.anims.generateFrameNumbers("ship2", {start: 0, end: 1}),
+        repeat: -1
+      })
+  
+      this.anims.create({
+        key: "ship3_anim",
+        frames: this.anims.generateFrameNumbers("ship3", {start: 0, end: 1}),
+        repeat: -1
+      })
+      
+      this.anims.create({
+        key: "explode",
+        frames: this.anims.generateFrameNumbers("explosion", {start: 0, end: 1}),
+        frameRate: 20,
+        repeat: 0,
+        hideOnComplete: true
+      });
+  
+      this.anims.create({
+        key: "red",
+        frames: this.anims.generateFrameNumbers("power-up", {
+          start: 0,
+          end: 1
+        }),
+        frameRate: 20,
+        repeat: -1
+      });
+  
+      this.anims.create({
+        key: "gray",
+        frames: this.anims.generateFrameNumbers("power-up", {
+          start: 2,
+          end: 3
+        }),
+        frameRate: 20,
+        repeat: -1
+      });
+
+      this.anims.create({
+        key: "thrust",
+        frames: this.anims.generateFrameNumbers("player",{
+          start: 2,
+          end: 3
+        }),
+        frameRate: 20,
+        repeat: -1
+      });
 
     this.scene.start('MainScene');
   }

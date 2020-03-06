@@ -2,7 +2,7 @@ import icecream from "../objects/icecream";
 import ship from "../objects/ship"
 import bears from "../objects/bears";
 import background from "../objects/background";
-import powerUps from "../objects/powerUps";
+import PowerUp from "../objects/PowerUp";
 
 //import ExampleObject from '../objects/exampleObject';
 //import PreloadScene from './preloadScene';
@@ -15,7 +15,8 @@ export default class MainScene extends Phaser.Scene {
   //private bears: bears;
   //private icecream: icecream;
   private background;
-  private powerUps: powerUps;
+  //private powerUps: powerUps;
+  private player;
 
 
   constructor() {
@@ -37,7 +38,8 @@ export default class MainScene extends Phaser.Scene {
     this.ship1 = this.add.sprite(this.scale.width/2-50, this.scale.height/2, "ship1");
     this.ship2 = this.add.sprite(this.scale.width/2, this.scale.height/2, "ship2");
     this.ship3 = this.add.sprite(this.scale.width/2+50, this.scale.height/2, "ship3");
-    
+    this.player = this.physics.add.sprite(this.scale.width / 2-8, this.scale.height - 64, "player");
+    this.player.play("thrust");
     
     //let bears = this.add.image(this.scale.width/2-50, this.scale.height/2, "bears");
     //let icecream = this.add.image(this.scale.width/2-50, this.scale.height/2, "bears");
@@ -46,51 +48,7 @@ export default class MainScene extends Phaser.Scene {
     //let icecream2 = this.add.image(500, 200, "icecream2");
     //let icecream3 = this.add.image(365, 365, "icecream3");
 
-    this.anims.create({
-    key: "ship1_anim", 
-    frames: this.anims.generateFrameNumbers("ship1", {start: 0, end: 1}), 
-    frameRate: 20, 
-    repeat: -1});
-
-    this.anims.create({
-      key: "ship2_anim",
-      frames: this.anims.generateFrameNumbers("ship2", {start: 0, end: 1}),
-      repeat: -1
-    })
-
-    this.anims.create({
-      key: "ship3_anim",
-      frames: this.anims.generateFrameNumbers("ship3", {start: 0, end: 1}),
-      repeat: -1
-    })
     
-    this.anims.create({
-      key: "explode",
-      frames: this.anims.generateFrameNumbers("explosion", {start: 0, end: 1}),
-      frameRate: 20,
-      repeat: 0,
-      hideOnComplete: true
-    });
-
-    this.anims.create({
-      key: "red",
-      frames: this.anims.generateFrameNumbers("power-up", {
-        start: 0,
-        end: 1
-      }),
-      frameRate: 20,
-      repeat: -1
-    });
-
-    this.anims.create({
-      key: "gray",
-      frames: this.anims.generateFrameNumbers("power-up", {
-        start: 2,
-        end: 3
-      }),
-      frameRate: 20,
-      repeat: -1
-    });
 
     //this.powerUps = this.physics.add.group();
 
