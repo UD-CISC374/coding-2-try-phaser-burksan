@@ -1,3 +1,5 @@
+import player from "../objects/player";
+
 export default class PreloadScene extends Phaser.Scene {
   constructor() {
     super({ key: 'PreloadScene' });
@@ -114,12 +116,14 @@ export default class PreloadScene extends Phaser.Scene {
       this.anims.create({
         key: "thrust",
         frames: this.anims.generateFrameNumbers("player",{
-          start: 2,
-          end: 3
+          start: 0,
+          end: 1
         }),
         frameRate: 20,
         repeat: -1
       });
+
+      
 
     this.scene.start('MainScene');
   }

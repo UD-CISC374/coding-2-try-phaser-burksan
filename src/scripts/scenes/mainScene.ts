@@ -17,6 +17,9 @@ export default class MainScene extends Phaser.Scene {
   private background;
   //private powerUps: powerUps;
   private player;
+  cursorKeys;
+  spacebar;
+  enemies;
 
 
   constructor() {
@@ -40,6 +43,9 @@ export default class MainScene extends Phaser.Scene {
     this.ship3 = this.add.sprite(this.scale.width/2+50, this.scale.height/2, "ship3");
     this.player = this.physics.add.sprite(this.scale.width / 2-8, this.scale.height - 64, "player");
     this.player.play("thrust");
+    this.cursorKeys = this.input.keyboard.createCursorKeys();
+    this.spacebar = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+    
     
     //let bears = this.add.image(this.scale.width/2-50, this.scale.height/2, "bears");
     //let icecream = this.add.image(this.scale.width/2-50, this.scale.height/2, "bears");
@@ -61,7 +67,15 @@ export default class MainScene extends Phaser.Scene {
     this.ship3.setInteractive();
 
     this.input.on('gameobjectdown', this.destroyShip, this);
+    this.player.setCollideWorldBounds(true);
+    //icecream.setBounce(1); //video 2:58
 
+    //this.physics.add.collider(this.projectiles, this.powerUps); //change projectiles and powerups to player and icecream
+
+    this.enemies = this.physics.add.group();
+    this.enemies.add(this.ship1);
+    //this.enemies.add(this.ship2);
+    //this.enemies.add(this.ship3);
   }
 
   moveIce(icecream, speed){
@@ -115,9 +129,29 @@ export default class MainScene extends Phaser.Scene {
     this.moveShipY(this.ship2, 2);
     this.moveShipY(this.ship3, 3);
     this.background.tilePositionY -= 0.5;
+
+    this.movePlayerManager();
+    if (Phaser.Input.Keyboard.JustDown(this.spacebar)){
+      console.log("Fire!");
+    }
     //this.moveIce(this.moveIc
       //{
   //} vid 4
 
+  }
+
+  movePlayerManager(){
+    if(this.cursorKeys.left.isDown){
+      this.player.setVelocityX(-100);
+    }
+    else if (this.cursorKeys.right.isDown){
+      this.player.setVelocityX(100);
+    }
+    if(this.cursorKeys.up.isDown){
+      this.player.setVelocityY(-100);
+    }
+    else if (this.cursorKeys.down.isDown){
+      this.player.setVelocityY(100);
+    }
   }
 }
